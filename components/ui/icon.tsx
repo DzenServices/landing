@@ -6,12 +6,23 @@ export const Icon = ({
   size,
   className,
 }: {
-  name: keyof typeof icons;
+  name: keyof typeof icons | string;
   color: string;
   size: number;
   className?: string;
 }) => {
-  const LucideIcon = icons[name as keyof typeof icons];
+  const map: Record<string, any> = icons as unknown as Record<string, any>;
+  const LucideIcon = map[name as string];
+
+  if (!LucideIcon) {
+    // Безопасный фолбэк без обращения к несуществующим иконкам
+    return (
+      <span
+        className={className}
+        style={{ display: "inline-block", width: size, height: size }}
+      />
+    );
+  }
 
   return <LucideIcon color={color} size={size} className={className} />;
 };

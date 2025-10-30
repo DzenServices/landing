@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Устранение предупреждения о неверном корне workspace при output file tracing
+  outputFileTracingRoot: process.cwd(),
   images: {
     remotePatterns: [
       {
