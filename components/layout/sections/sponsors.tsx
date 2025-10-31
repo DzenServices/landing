@@ -47,7 +47,7 @@ export const SponsorsSection = () => {
       </h2>
 
       <div className="mx-auto">
-        <Marquee pauseOnHover speed={30} gradient gradientWidth={8}>
+        <Marquee pauseOnHover speed={30} gradient gradientWidth={30}>
           <div className="flex items-center gap-[3rem]">
             {sponsors.map(({ icon, name }) => (
               <div
