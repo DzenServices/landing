@@ -2,17 +2,9 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useTheme } from "next-themes";
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export const HeroSection = () => {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  // До монтирования всегда показываем светлую картинку, чтобы избежать гидрационных расхождений
-  const isLight = mounted ? resolvedTheme === "light" : true;
   return (
     <section className="container w-full">
       <div className="grid place-items-center lg:max-w-screen-xl gap-8 mx-auto py-20 md:py-32">
