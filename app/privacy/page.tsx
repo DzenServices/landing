@@ -221,19 +221,7 @@ export default function PrivacyPage({ searchParams }: PageProps) {
 
           {/* Оглавление (правый сайдбар) */}
           <aside className="lg:col-span-4 xl:col-span-3">
-            <PrivacyToc
-              items={[
-                { id: "s1", label: "1. Сбор и использование" },
-                { id: "s2", label: "2. Хранение и удаление" },
-                { id: "s3", label: "3. Технические данные" },
-                { id: "s4", label: "4. Передача третьим лицам" },
-                { id: "s5", label: "5. Дети" },
-                { id: "s6", label: "6. Cookie и сервисы" },
-                { id: "s7", label: "7. Внешние ссылки" },
-                { id: "s8", label: "8. Обновления политики" },
-                { id: "s9", label: "9. Контакты" },
-              ]}
-            />
+            <PrivacyToc items={t.toc} />
           </aside>
         </div>
       </section>
