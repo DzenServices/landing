@@ -6,9 +6,11 @@ import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { cookies } from "next/headers";
+import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"),
   title: "Быстрый и безопасный VPN | Dzen VPN",
   description:
     "Подключение через @vpn_dzen_bot за 1 минуту. Быстрый и безопасный VPN с VLESS+REALITY, без логов. Работает на iOS, Android, Windows, macOS и Smart TV.",
@@ -63,6 +65,30 @@ export default async function RootLayout({
             {children}
           </ThemeProvider>
         </LocaleProvider>
+        {/* JSON-LD structured data */}
+        <Script id="ld-org" type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Dzen VPN',
+            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
+            logo: (process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com') + '/logos/favicon.svg',
+            sameAs: ['https://t.me/vpn_dzen_bot']
+          }) }}
+        />
+        <Script id="ld-website" type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Dzen VPN',
+            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: (process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com') + '/?q={search_term_string}',
+              'query-input': 'required name=search_term_string'
+            }
+          }) }}
+        />
       </body>
     </html>
   );

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { BenefitsSection } from "@/components/layout/sections/benefits";
 // import { CommunitySection } from "@/components/layout/sections/community";
 import { FAQSection } from "@/components/layout/sections/faq";
@@ -9,6 +10,7 @@ import { PricingSection } from "@/components/layout/sections/pricing";
 import { SponsorsSection } from "@/components/layout/sections/sponsors";
 // import { TestimonialSection } from "@/components/layout/sections/testimonial";
 import { HowItWorksSection } from "@/components/layout/sections/how-it-works";
+import { getDictionary } from "@/components/i18n/dictionary";
 
 export async function generateMetadata({ searchParams }: { searchParams?: Record<string, string | string[] | undefined> }): Promise<Metadata> {
   const lang = (typeof searchParams?.lang === "string" ? searchParams?.lang : Array.isArray(searchParams?.lang) ? searchParams?.lang[0] : "ru")?.toLowerCase();
@@ -45,12 +47,16 @@ export async function generateMetadata({ searchParams }: { searchParams?: Record
   };
 }
 
-type PageProps = {
-  searchParams?: Record<string, string | string[] | undefined>;
-};
+type PageProps = { searchParams?: Record<string, string | string[] | undefined> };
 
 export default function Home({ searchParams }: PageProps) {
   const lang = (typeof searchParams?.lang === "string" ? searchParams?.lang : Array.isArray(searchParams?.lang) ? searchParams?.lang[0] : "ru")?.toLowerCase();
+  const dict = getDictionary(lang === "en" ? "en" : "ru");
+  const faqEntities = dict.home.faq.items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  }));
   return (
     <>
       <HeroSection lang={lang} />
@@ -59,9 +65,17 @@ export default function Home({ searchParams }: PageProps) {
       <FeaturesSection lang={lang} />
       <HowItWorksSection lang={lang} />
       <PricingSection lang={lang} />
+      {/* <TestimonialSection /> */}
+      {/* <CommunitySection /> */}
       <FAQSection lang={lang} />
+      <Script id="ld-faq" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqEntities,
+        }) }}
+      />
       <FooterSection />
     </>
   );
 }
-
