@@ -36,27 +36,27 @@ interface FeatureProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "#sponsors",
+    href: "/#sponsors",
     label: "Страны подключения",
   },
   {
-    href: "#benefits",
+    href: "/#benefits",
     label: "Преимущества",
   },
   {
-    href: "#features",
+    href: "/#features",
     label: "Особенности",
   },
   {
-    href: "#how-it-works",
+    href: "/#how-it-works",
     label: "Как это работает",
   },
   {
-    href: "#pricing",
+    href: "/#pricing",
     label: "Тарифы",
   },
   {
-    href: "#faq",
+    href: "/#faq",
     label: "FAQ",
   },
 ];

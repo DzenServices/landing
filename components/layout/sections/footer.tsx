@@ -27,27 +27,27 @@ export const FooterSection = () => {
           <div className="flex flex-col gap-2 order-3 xl:col-start-5">
             <h3 className="font-bold text-lg">Разделы</h3>
             <div>
-              <Link href="#sponsors" className="opacity-60 hover:opacity-100">
+              <Link href="/#sponsors" className="opacity-60 hover:opacity-100">
                 Страны подключения
               </Link>
             </div>
             <div>
-              <Link href="#benefits" className="opacity-60 hover:opacity-100">
+              <Link href="/#benefits" className="opacity-60 hover:opacity-100">
                 Преимущества
               </Link>
             </div>
             <div>
-              <Link href="#features" className="opacity-60 hover:opacity-100">
+              <Link href="/#features" className="opacity-60 hover:opacity-100">
                 Особенности
               </Link>
             </div>
             <div>
-              <Link href="#how-it-works" className="opacity-60 hover:opacity-100">
+              <Link href="/#how-it-works" className="opacity-60 hover:opacity-100">
                 Как это работает
               </Link>
             </div>
             <div>
-              <Link href="#pricing" className="opacity-60 hover:opacity-100">
+              <Link href="/#pricing" className="opacity-60 hover:opacity-100">
                 Тарифы
               </Link>
             </div>
@@ -56,8 +56,18 @@ export const FooterSection = () => {
           <div className="flex flex-col gap-3 items-end text-right order-4 col-span-2 md:col-span-1 xl:col-span-1 xl:col-start-6">
             <h3 className="font-bold text-lg">Помощь</h3>
             <div>
-              <Link href="#faq" className="opacity-60 hover:opacity-100">
+              <Link href="/#faq" className="opacity-60 hover:opacity-100">
                 FAQ
+              </Link>
+            </div>
+            <div>
+              <Link href="/privacy" className="opacity-60 hover:opacity-100">
+                Политика конфиденциальности
+              </Link>
+            </div>
+            <div>
+              <Link href="/terms" className="opacity-60 hover:opacity-100">
+                Правила пользования
               </Link>
             </div>
           </div>

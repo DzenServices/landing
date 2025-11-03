@@ -36,8 +36,7 @@ export const metadata: Metadata = {
       { url: "/logos/apple-touch-icon.png", rel: "apple-touch-icon" },
     ],
     shortcut: [{ url: "/logos/favicon.ico" }],
-  },
-  themeColor: "#ffffff",
+  }
 };
 
 export default function RootLayout({
