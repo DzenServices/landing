@@ -10,28 +10,28 @@ interface BenefitsProps {
 
 const benefitList: BenefitsProps[] = [
   {
-    icon: "Blocks",
-    title: "Build Brand Trust",
+    icon: "Tv",
+    title: "Стриминг и Smart TV",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "Смотрите фильмы и сериалы на смартфоне, ноутбуке и Smart TV без сложной настройки.",
   },
   {
-    icon: "LineChart",
-    title: "More Leads",
+    icon: "Wifi",
+    title: "Путешествия и публичный Wi‑Fi",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, natus consectetur.",
+      "Защищённое подключение в отелях, аэропортах и кафе.",
   },
   {
-    icon: "Wallet",
-    title: "Higher Conversions",
+    icon: "Briefcase",
+    title: "Работа и банки",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus consectetur. A odio velit cum aliquam",
+      "Доступ к корпоративным ресурсам и сервисам из любой точки мира.",
   },
   {
-    icon: "Sparkle",
-    title: "Test Marketing Ideas",
+    icon: "Brain",
+    title: "Учёба и AI‑сервисы",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "Свободный доступ к обучающим платформам и инструментам ИИ.",
   },
 ];
 
@@ -40,15 +40,11 @@ export const BenefitsSection = () => {
     <section id="benefits" className="container py-24 sm:py-32">
       <div className="grid lg:grid-cols-2 place-items-center lg:gap-24">
         <div>
-          <h2 className="text-lg text-primary mb-2 tracking-wider">Benefits</h2>
+          <h2 className="text-lg text-primary mb-2 tracking-wider">Преимущества</h2>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Your Shortcut to Success
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ваш путь к комфорту</h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non
-            ducimus reprehenderit architecto rerum similique facere odit
-            deleniti necessitatibus quo quae.
+            Собственное приложение внутри Telegram — подключайте и управляйте в пару кликов.
           </p>
         </div>
 

@@ -10,40 +10,40 @@ interface FeaturesProps {
 
 const featureList: FeaturesProps[] = [
   {
-    icon: "TabletSmartphone",
-    title: "Mobile Friendly",
+    icon: "Server",
+    title: "10 Gbps сервера",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, consectetur.",
+      "Сверхбыстрое соединение для потоков, игр и скачиваний без задержек.",
   },
   {
-    icon: "BadgeCheck",
-    title: "Social Proof",
+    icon: "Clock",
+    title: "Стабильное соединение 24/7",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Natus consectetur, odio ea accusamus aperiam.",
+      "Надёжная инфраструктура и высокий аптайм для постоянного доступа.",
   },
   {
-    icon: "Goal",
-    title: "Targeted Content",
+    icon: "EyeOff",
+    title: "Без логов и слежки",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. odio ea accusamus aperiam.",
+      "Мы не ведём журналы активности. Ваша приватность — в приоритете.",
   },
   {
-    icon: "PictureInPicture",
-    title: "Strong Visuals",
+    icon: "Lock",
+    title: "Сильное шифрование TLS/XTLS",
     description:
-      "Lorem elit. A odio velit cum aliquam. Natus consectetur dolores, odio ea accusamus aperiam.",
+      "Надёжная защита трафика и устойчивость к перехвату.",
   },
   {
-    icon: "MousePointerClick",
-    title: "Clear CTA",
+    icon: "Laptop",
+    title: "Кроссплатформенность (iOS, Android, Windows, macOS, Smart TV)",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing. odio ea accusamus consectetur.",
+      "Работает на всех ваших устройствах без сложных настроек.",
   },
   {
-    icon: "Newspaper",
-    title: "Clear Headline",
+    icon: "Infinity",
+    title: "Неограниченный трафик",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur.",
+      "Без лимитов на объём данных — используйте сколько нужно.",
   },
 ];
 
@@ -51,17 +51,15 @@ export const FeaturesSection = () => {
   return (
     <section id="features" className="container py-24 sm:py-32">
       <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
-        Features
+        Особенности
       </h2>
 
       <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">
-        What Makes Us Different
+        Всё для комфортного доступа
       </h2>
 
       <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem
-        fugiat, odit similique quasi sint reiciendis quidem iure veritatis optio
-        facere tenetur.
+        Безопасный, быстрый и удобный VPN для работы, общения и развлечений на любых устройствах.
       </h3>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -25,68 +25,38 @@ interface PlanProps {
 
 const plans: PlanProps[] = [
   {
-    title: "Free",
-    popular: 0,
-    price: 0,
+    title: "Один простой тариф",
+    popular: PopularPlan.YES,
+    price: 3,
     description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Start Free Trial",
+      "У нас нет тарифов — всё просто: 3 ₽ в сутки за подключённое устройство.",
+    buttonText: "Подключить в Telegram",
     benefitList: [
-      "1 team member",
-      "1 GB storage",
-      "Upto 2 pages",
-      "Community support",
-      "AI assistance",
-    ],
-  },
-  {
-    title: "Premium",
-    popular: 1,
-    price: 45,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Get starterd",
-    benefitList: [
-      "4 team member",
-      "8 GB storage",
-      "Upto 6 pages",
-      "Priority support",
-      "AI assistance",
-    ],
-  },
-  {
-    title: "Enterprise",
-    popular: 0,
-    price: 120,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Contact US",
-    benefitList: [
-      "10 team member",
-      "20 GB storage",
-      "Upto 10 pages",
-      "Phone & email support",
-      "AI assistance",
+      "Скорость до 10 Gbps",
+      "Заморозка подписки в любой момент",
+      "Персональные настройки навигации",
+      "Много геолокаций по всему миру",
+      "YouTube без рекламы и доступ к AI",
     ],
   },
 ];
 
 export const PricingSection = () => {
   return (
-    <section className="container py-24 sm:py-32">
+    <section id="pricing" className="container py-24 sm:py-32">
       <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
-        Pricing
+        Тарифы
       </h2>
 
       <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">
-        Get unlimitted access
+        Всё просто
       </h2>
 
       <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground pb-14">
-        Lorem ipsum dolor sit amet consectetur adipisicing reiciendis.
+        Платите только за подключённые устройства и дни использования — без скрытых условий.
       </h3>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">
+      <div className="grid grid-cols-1 place-items-center gap-8">
         {plans.map(
           ({ title, popular, price, description, buttonText, benefitList }) => (
             <Card
@@ -105,8 +75,8 @@ export const PricingSection = () => {
                 </CardDescription>
 
                 <div>
-                  <span className="text-3xl font-bold">${price}</span>
-                  <span className="text-muted-foreground"> /month</span>
+                  <span className="text-3xl font-bold">{price}₽</span>
+                  <span className="text-muted-foreground"> / сутки</span>
                 </div>
               </CardHeader>
 
@@ -123,12 +93,18 @@ export const PricingSection = () => {
 
               <CardFooter>
                 <Button
-                  variant={
-                    popular === PopularPlan?.YES ? "default" : "secondary"
-                  }
+                  asChild
+                  variant={popular === PopularPlan?.YES ? "default" : "secondary"}
                   className="w-full"
                 >
-                  {buttonText}
+                  <a
+                    href="https://t.me/vpn_dzen_bot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Подключить Dzen VPN в Telegram"
+                  >
+                    {buttonText}
+                  </a>
                 </Button>
               </CardFooter>
             </Card>

@@ -1,4 +1,4 @@
-import DiscordIcon from "@/components/icons/discord-icon";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,24 +17,34 @@ export const CommunitySection = () => {
           <Card className="bg-background border-none shadow-none text-center flex flex-col items-center justify-center">
             <CardHeader>
               <CardTitle className="text-4xl md:text-5xl font-bold flex flex-col items-center">
-                <DiscordIcon />
+                <Image
+                  src="/telegram.svg"
+                  alt="Telegram"
+                  width={48}
+                  height={48}
+                  className="mb-2"
+                />
                 <div>
-                  Ready to join this
+                  Готовы присоединиться к
                   <span className="text-transparent pl-2 bg-gradient-to-r from-[#D247BF] to-primary bg-clip-text">
-                    Community?
+                    Telegram?
                   </span>
                 </div>
               </CardTitle>
             </CardHeader>
             <CardContent className="lg:w-[80%] text-xl text-muted-foreground">
-              Join our vibrant Discord community! Connect, share, and grow with
-              like-minded enthusiasts. Click to dive in! 🚀
+              Присоединяйтесь к нашему Telegram‑сообществу: общайтесь, делитесь опытом и получайте помощь в один клик. 🚀
             </CardContent>
 
             <CardFooter>
               <Button asChild>
-                <a href="https://discord.com/" target="_blank">
-                  Join Discord
+                <a
+                  href="https://t.me/dzen_services"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Открыть Telegram-сообщество Dzen Services"
+                >
+                  Присоединиться в Telegram
                 </a>
               </Button>
             </CardFooter>

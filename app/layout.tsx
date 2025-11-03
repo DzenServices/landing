@@ -7,8 +7,37 @@ import { ThemeProvider } from "@/components/layout/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Shadcn - Landing template",
-  description: "Landing template from Shadcn",
+  title: "Быстрый и безопасный VPN | Dzen VPN",
+  description:
+    "Подключение через @vpn_dzen_bot за 1 минуту. Быстрый и безопасный VPN с VLESS+REALITY, без логов. Работает на iOS, Android, Windows, macOS и Smart TV.",
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  manifest: "/logos/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/logos/favicon.svg", type: "image/svg+xml" },
+      { url: "/logos/favicon.ico" },
+      { url: "/logos/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/logos/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/logos/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/logos/apple-touch-icon.png", rel: "apple-touch-icon" },
+    ],
+    shortcut: [{ url: "/logos/favicon.ico" }],
+  },
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
