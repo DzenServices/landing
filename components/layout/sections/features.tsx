@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { icons } from "lucide-react";
+import { getDictionary } from "@/components/i18n/dictionary";
 
 interface FeaturesProps {
   icon: string;
@@ -8,62 +9,27 @@ interface FeaturesProps {
   description: string;
 }
 
-const featureList: FeaturesProps[] = [
-  {
-    icon: "Server",
-    title: "10 Gbps сервера",
-    description:
-      "Сверхбыстрое соединение для потоков, игр и скачиваний без задержек.",
-  },
-  {
-    icon: "Clock",
-    title: "Стабильное соединение 24/7",
-    description:
-      "Надёжная инфраструктура и высокий аптайм для постоянного доступа.",
-  },
-  {
-    icon: "EyeOff",
-    title: "Без логов и слежки",
-    description:
-      "Мы не ведём журналы активности. Ваша приватность — в приоритете.",
-  },
-  {
-    icon: "Lock",
-    title: "Сильное шифрование TLS/XTLS",
-    description:
-      "Надёжная защита трафика и устойчивость к перехвату.",
-  },
-  {
-    icon: "Laptop",
-    title: "Кроссплатформенность (iOS, Android, Windows, macOS, Smart TV)",
-    description:
-      "Работает на всех ваших устройствах без сложных настроек.",
-  },
-  {
-    icon: "Infinity",
-    title: "Неограниченный трафик",
-    description:
-      "Без лимитов на объём данных — используйте сколько нужно.",
-  },
-];
+type Props = { lang?: string };
 
-export const FeaturesSection = () => {
+export const FeaturesSection = ({ lang }: Props) => {
+  const dict = getDictionary(lang === "en" ? "en" : "ru");
+  const t = dict.home.features;
   return (
     <section id="features" className="container py-24 sm:py-32">
       <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
-        Особенности
+        {t.kicker}
       </h2>
 
       <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">
-        Всё для комфортного доступа
+        {t.title}
       </h2>
 
       <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-        Безопасный, быстрый и удобный VPN для работы, общения и развлечений на любых устройствах.
+        {t.sub}
       </h3>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {featureList.map(({ icon, title, description }) => (
+        {t.items.map(({ icon, title, description }) => (
           <div key={title}>
             <Card className="h-full bg-background border-0 shadow-none">
               <CardHeader className="flex justify-center items-center">
@@ -89,3 +55,4 @@ export const FeaturesSection = () => {
     </section>
   );
 };
+

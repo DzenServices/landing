@@ -23,66 +23,29 @@ import Link from "next/link";
 import Image from "next/image";
 import { ToggleTheme } from "./toogle-theme";
 import { Logo } from "../icons/logo";
+import { LanguageToggle } from "@/components/i18n/LanguageToggle";
+import { useLocale } from "@/components/i18n/LocaleContext";
+import { getDictionary } from "@/components/i18n/dictionary";
 
-interface RouteProps {
-  href: string;
-  label: string;
-}
-
-interface FeatureProps {
-  title: string;
-  description: string;
-}
-
-const routeList: RouteProps[] = [
-  {
-    href: "/#sponsors",
-    label: "Страны подключения",
-  },
-  {
-    href: "/#benefits",
-    label: "Преимущества",
-  },
-  {
-    href: "/#features",
-    label: "Особенности",
-  },
-  {
-    href: "/#how-it-works",
-    label: "Как это работает",
-  },
-  {
-    href: "/#pricing",
-    label: "Тарифы",
-  },
-  {
-    href: "/#faq",
-    label: "FAQ",
-  },
-];
-
-const featureList: FeatureProps[] = [
-  {
-    title: "Showcase Your Value ",
-    description: "Highlight how your product solves user problems.",
-  },
-  {
-    title: "Build Trust",
-    description:
-      "Leverages social proof elements to establish trust and credibility.",
-  },
-  {
-    title: "Capture Leads",
-    description:
-      "Make your lead capture form visually appealing and strategically.",
-  },
-];
+interface RouteProps { hash: string; label: string }
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const { lang } = useLocale();
+  const dict = getDictionary(lang === "en" ? "en" : "ru");
+  const t = dict.nav;
+  const routeList: RouteProps[] = [
+    { hash: "sponsors", label: t.sponsors },
+    { hash: "benefits", label: t.benefits },
+    { hash: "features", label: t.features },
+    { hash: "how-it-works", label: t.how },
+    { hash: "pricing", label: t.pricing },
+    { hash: "faq", label: t.faq },
+  ];
+  const base = lang === "en" ? "/en" : "/";
   return (
     <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
-      <Link href="/" className="font-bold text-lg flex items-center">
+      <Link href={base} className="font-bold text-lg flex items-center">
         <Logo className="w-9 h-9 mr-2 text-primary" />
         Dzen VPN
       </Link>
@@ -103,7 +66,7 @@ export const Navbar = () => {
             <div>
               <SheetHeader className="mb-4 ml-4">
                 <SheetTitle className="flex items-center">
-                  <Link href="/" className="flex items-center">
+                  <Link href={base} className="flex items-center">
                     <Logo className="w-9 h-9 mr-2 text-primary" />
                     Dzen VPN
                   </Link>
@@ -111,15 +74,15 @@ export const Navbar = () => {
               </SheetHeader>
 
               <div className="flex flex-col gap-2">
-                {routeList.map(({ href, label }) => (
+                {routeList.map(({ hash, label }) => (
                   <Button
-                    key={href}
+                    key={hash}
                     onClick={() => setIsOpen(false)}
                     asChild
                     variant="ghost"
                     className="justify-start text-base"
                   >
-                    <Link href={href}>{label}</Link>
+                    <Link href={`${base}#${hash}`}>{label}</Link>
                   </Button>
                 ))}
               </div>
@@ -128,6 +91,7 @@ export const Navbar = () => {
             <SheetFooter className="flex-col sm:flex-col justify-start items-start">
               <Separator className="mb-2" />
 
+              <div className="mb-2"><LanguageToggle /></div>
               <ToggleTheme />
             </SheetFooter>
           </SheetContent>
@@ -138,9 +102,9 @@ export const Navbar = () => {
       <NavigationMenu className="hidden lg:block mx-auto">
         <NavigationMenuList>
           <NavigationMenuItem>
-            {routeList.map(({ href, label }) => (
-              <NavigationMenuLink key={href} asChild>
-                <Link href={href} className="text-base px-2">
+            {routeList.map(({ hash, label }) => (
+              <NavigationMenuLink key={hash} asChild>
+                <Link href={`${base}#${hash}`} className="text-base px-2">
                   {label}
                 </Link>
               </NavigationMenuLink>
@@ -150,7 +114,10 @@ export const Navbar = () => {
       </NavigationMenu>
 
       <div className="hidden lg:flex">
-        <ToggleTheme />
+        <div className="flex items-center gap-3">
+          <LanguageToggle />
+          <ToggleTheme />
+        </div>
       </div>
     </header>
   );
