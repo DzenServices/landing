@@ -200,8 +200,8 @@ const RU: Dictionary = {
         {
           title: "Один простой тариф",
           popular: 1,
-          price: 3,
-          description: "У нас нет тарифов — всё просто: 3 ₽ в сутки за подключённое устройство.",
+          price: 7,
+          description: "У нас нет тарифов — всё просто: 7 ₽ в сутки за подключённое устройство.",
           buttonText: "Подключить в Telegram",
           buttonAria: "Подключить Dzen VPN в Telegram",
           benefitList: [
