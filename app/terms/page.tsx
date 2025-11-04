@@ -3,8 +3,9 @@ import { FooterSection } from "@/components/layout/sections/footer";
 import Link from "next/link";
 import { PrivacyToc } from "@/components/privacy/PrivacyToc";
 
-export async function generateMetadata({ searchParams }: { searchParams?: Record<string, string | string[] | undefined> }): Promise<Metadata> {
-  const lang = (typeof searchParams?.lang === "string" ? searchParams?.lang : Array.isArray(searchParams?.lang) ? searchParams?.lang[0] : "ru")?.toLowerCase();
+export async function generateMetadata({ searchParams }: { searchParams?: Promise<Record<string, string | string[] | undefined>> }): Promise<Metadata> {
+  const sp = (await searchParams) ?? undefined;
+  const lang = (typeof sp?.lang === "string" ? sp?.lang : Array.isArray(sp?.lang) ? sp?.lang[0] : "ru")?.toLowerCase();
   const isEn = lang === "en";
   const title = isEn ? "Terms of Use | Dzen VPN" : "Правила пользования | Dzen VPN";
   const description = isEn
@@ -25,7 +26,7 @@ export async function generateMetadata({ searchParams }: { searchParams?: Record
 }
 
 type PageProps = {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
 };
 
 const ru = {
@@ -182,8 +183,9 @@ const en = {
   ],
 };
 
-export default function TermsPage({ searchParams }: PageProps) {
-  const lang = (typeof searchParams?.lang === "string" ? searchParams?.lang : Array.isArray(searchParams?.lang) ? searchParams?.lang[0] : "ru")?.toLowerCase();
+export default async function TermsPage({ searchParams }: PageProps) {
+  const sp = (await searchParams) ?? undefined;
+  const lang = (typeof sp?.lang === "string" ? sp?.lang : Array.isArray(sp?.lang) ? sp?.lang[0] : "ru")?.toLowerCase();
   const t = lang === "en" ? en : ru;
   const updatedAt = "03.11.2025";
 

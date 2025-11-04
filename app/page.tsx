@@ -12,8 +12,9 @@ import { SponsorsSection } from "@/components/layout/sections/sponsors";
 import { HowItWorksSection } from "@/components/layout/sections/how-it-works";
 import { getDictionary } from "@/components/i18n/dictionary";
 
-export async function generateMetadata({ searchParams }: { searchParams?: Record<string, string | string[] | undefined> }): Promise<Metadata> {
-  const lang = (typeof searchParams?.lang === "string" ? searchParams?.lang : Array.isArray(searchParams?.lang) ? searchParams?.lang[0] : "ru")?.toLowerCase();
+export async function generateMetadata({ searchParams }: { searchParams?: Promise<Record<string, string | string[] | undefined>> }): Promise<Metadata> {
+  const sp = (await searchParams) ?? undefined;
+  const lang = (typeof sp?.lang === "string" ? sp?.lang : Array.isArray(sp?.lang) ? sp?.lang[0] : "ru")?.toLowerCase();
   const isEn = lang === "en";
   const title = isEn ? "Fast and secure VPN | Dzen VPN" : "Быстрый и безопасный VPN | Dzen VPN";
   const description = isEn
@@ -47,10 +48,11 @@ export async function generateMetadata({ searchParams }: { searchParams?: Record
   };
 }
 
-type PageProps = { searchParams?: Record<string, string | string[] | undefined> };
+type PageProps = { searchParams?: Promise<Record<string, string | string[] | undefined>> };
 
-export default function Home({ searchParams }: PageProps) {
-  const lang = (typeof searchParams?.lang === "string" ? searchParams?.lang : Array.isArray(searchParams?.lang) ? searchParams?.lang[0] : "ru")?.toLowerCase();
+export default async function Home({ searchParams }: PageProps) {
+  const sp = (await searchParams) ?? undefined;
+  const lang = (typeof sp?.lang === "string" ? sp?.lang : Array.isArray(sp?.lang) ? sp?.lang[0] : "ru")?.toLowerCase();
   const dict = getDictionary(lang === "en" ? "en" : "ru");
   const faqEntities = dict.home.faq.items.map((item) => ({
     "@type": "Question",
