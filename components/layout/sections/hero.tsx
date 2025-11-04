@@ -28,12 +28,13 @@ export const HeroSection = ({ lang }: Props) => {
           </p>
 
           <div className="flex justify-center">
-            <Button asChild className="w-full sm:w-auto px-6 py-3 font-bold group/arrow">
+            <Button asChild className="px-6 py-3 font-bold group/arrow overflow-hidden">
               <Link
                 href="https://t.me/vpn_dzen_bot"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t.aria}
+                className="inline-flex items-center"
               >
                 {t.cta}
                 <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
