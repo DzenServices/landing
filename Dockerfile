@@ -14,7 +14,7 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
-# --- Runner ---
+# --- Runner (standalone) ---
 FROM node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
@@ -25,15 +25,14 @@ ENV PORT=3000
 # Set a default, override in runtime (used by SEO)
 ENV NEXT_PUBLIC_SITE_URL="https://example.com"
 
-# Copy only what's needed to run
-COPY --from=build /app/.next ./.next
+# Copy standalone output only
+COPY --from=build /app/.next/standalone ./
+COPY --from=build /app/.next/static ./.next/static
 COPY --from=build /app/public ./public
-COPY --from=build /app/package*.json ./
-COPY --from=build /app/node_modules ./node_modules
 
 # Run as non-root
 RUN addgroup -S nodejs && adduser -S nextjs -G nodejs
 USER nextjs
 
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["node", "server.js"]

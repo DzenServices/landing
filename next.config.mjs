@@ -2,6 +2,8 @@
 const nextConfig = {
   // Устранение предупреждения о неверном корне workspace при output file tracing
   outputFileTracingRoot: process.cwd(),
+  // Включаем standalone для минимального рантайма без полного node_modules
+  output: "standalone",
   images: {
     remotePatterns: [
       {
