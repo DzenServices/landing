@@ -30,6 +30,16 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build and push image to GHCR
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/dzenservices/landing:${{ env.SHORT_SHA }}
+            ghcr.io/dzenservices/landing:latest
+
       - name: Set DEPLOY_IMAGE
         run: |
           TAG="${{ github.event.inputs.image_tag }}"
