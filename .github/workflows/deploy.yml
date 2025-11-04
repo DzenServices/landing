@@ -1,8 +1,13 @@
 name: Deploy to VPS via Docker
 
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Image tag to deploy (sha or latest)"
+        required: false
+        default: latest
+        type: string
 
 jobs:
   build-and-deploy:
@@ -14,6 +19,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set SHORT_SHA
+        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -28,15 +36,21 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push image
-        uses: docker/build-push-action@v6
+      - name: Set DEPLOY_IMAGE
+        run: |
+          TAG="${{ github.event.inputs.image_tag }}"
+          if [ -z "$TAG" ]; then TAG=latest; fi
+          echo "DEPLOY_IMAGE=ghcr.io/${{ github.repository_owner }}/landing:$TAG" >> $GITHUB_ENV
+
+      - name: Upload docker-compose.yml to VPS
+        uses: appleboy/scp-action@v0.1.7
         with:
-          push: true
-          tags: ghcr.io/${{ github.repository_owner }}/landing:latest
-          context: .
-          file: ./Dockerfile
-          build-args: |
-            NEXT_PUBLIC_SITE_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT || 22 }}
+          source: "docker-compose.yml"
+          target: "/opt/landing"
 
       - name: Deploy on VPS via SSH
         uses: appleboy/ssh-action@v1.0.3
@@ -47,13 +61,14 @@ jobs:
           port: ${{ secrets.VPS_PORT || 22 }}
           script: |
             set -e
+            IMAGE="${{ env.DEPLOY_IMAGE }}"
+            mkdir -p /opt/landing
+            cd /opt/landing
+            echo "IMAGE=$IMAGE" > .env
+            echo "NEXT_PUBLIC_SITE_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }}" >> .env
             docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
-            docker pull ghcr.io/${{ github.repository_owner }}/landing:latest
-            docker stop landing || true
-            docker rm landing || true
-            docker run -d \
-              --name landing \
-              -p 80:3000 \
-              -e NEXT_PUBLIC_SITE_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }} \
-              --restart unless-stopped \
-              ghcr.io/${{ github.repository_owner }}/landing:latest
+            docker compose pull
+            docker compose up -d
+            echo "Deployed IMAGE=$IMAGE (short=${{ env.SHORT_SHA }}) at $(date -Is)" | tee VERSION
+            echo "Running containers:" && docker compose ps
+            echo "Container image digest:" && docker inspect --format='{{.Config.Image}}' landing || true

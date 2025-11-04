@@ -1,0 +1,24 @@
+# Replace example.com with your domain
+example.com {
+  encode gzip zstd
+
+  # Forward all requests to the Next.js container
+  reverse_proxy landing:3000 {
+    header_up Host {host}
+    header_up X-Forwarded-For {remote}
+    header_up X-Forwarded-Proto {scheme}
+    header_up X-Forwarded-Host {host}
+  }
+
+  # Optional: increase timeouts for large pages/SSR
+  # reverse_proxy transport http {
+  #   read_timeout 30s
+  #   write_timeout 30s
+  # }
+
+  # Static cache hints (Next already sets good headers for static assets)
+  @static {
+    path *.css *.js *.png *.jpg *.jpeg *.gif *.ico *.svg *.webp *.woff *.woff2
+  }
+  header @static Cache-Control "public, max-age=2592000, immutable"
+}
