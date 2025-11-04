@@ -11,8 +11,8 @@ export const HeroSection = ({ lang }: Props) => {
   const t = dict.home.hero;
   return (
     <section className="container w-full">
-      <div className="grid place-items-center lg:max-w-screen-xl gap-8 mx-auto py-20 md:py-32">
-        <div className="text-center space-y-8">
+      <div className="mx-auto max-w-screen-xl px-4 md:px-6 py-20 md:py-32 text-center flex items-center justify-center min-h-[70vh] md:min-h-[80vh]">
+        <div className="space-y-8">
           <div className="max-w-screen-md mx-auto text-center text-4xl md:text-6xl font-bold">
             <h1>
               {t.titleStart}
