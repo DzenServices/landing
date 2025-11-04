@@ -34,7 +34,7 @@ jobs:
         run: |
           TAG="${{ github.event.inputs.image_tag }}"
           if [ -z "$TAG" ]; then TAG=latest; fi
-          echo "DEPLOY_IMAGE=ghcr.io/${{ toLower(github.repository_owner) }}/landing:$TAG" >> $GITHUB_ENV
+          echo "DEPLOY_IMAGE=ghcr.io/dzenservices/landing:$TAG" >> $GITHUB_ENV
 
       - name: Upload docker-compose.yml to VPS
         uses: appleboy/scp-action@v0.1.7
