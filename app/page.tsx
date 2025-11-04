@@ -37,13 +37,11 @@ export async function generateMetadata({ searchParams }: { searchParams?: Promis
       description,
       locale: isEn ? "en_US" : "ru_RU",
       alternateLocale: ["ru_RU", "en_US"],
-      images: [{ url: "/hero-image-light.jpeg", width: 1200, height: 630, alt: isEn ? "Dzen VPN — fast and secure VPN" : "Dzen VPN — быстрый и безопасный VPN" }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/hero-image-light.jpeg"],
     },
   };
 }
