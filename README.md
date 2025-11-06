@@ -112,7 +112,7 @@ docker compose up -d
 Файл `Caddyfile` в репозитории содержит пример:
 
 ```
-example.com {
+dzen-vpn.com {
   encode gzip zstd
   reverse_proxy landing:3000 {
     header_up Host {host}
@@ -122,7 +122,7 @@ example.com {
   }
 }
 ```
-- Замените `example.com` на ваш домен.
+- Замените `dzen-vpn.com` на ваш домен.
 - Убедитесь, что контейнер Caddy находится в сети `caddy` и читает корректный `Caddyfile`.
   Пример запуска (один из вариантов):
   ```bash
@@ -178,7 +178,7 @@ Workflow `.github/workflows/deploy.yml` делает следующее:
 - **VPS_USER** — пользователь SSH.
 - **VPS_SSH_KEY** — приватный ключ SSH (PEM/OPENSSH).
 - **VPS_PORT** — порт SSH (опционально, по умолчанию 22).
-- **NEXT_PUBLIC_SITE_URL** — публичный URL сайта, например `https://example.com`.
+- **NEXT_PUBLIC_SITE_URL** — публичный URL сайта, например `https://dzen-vpn.com`.
 
 ## Лицензия
 

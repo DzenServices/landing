@@ -10,7 +10,7 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://dzen-vpn.com"),
   alternates: {
     canonical: "/",
     languages: {
@@ -78,8 +78,8 @@ export default function RootLayout({
             '@context': 'https://schema.org',
             '@type': 'Organization',
             name: 'Dzen VPN',
-            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
-            logo: (process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com') + '/logos/favicon.svg',
+            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dzen-vpn.com',
+            logo: (process.env.NEXT_PUBLIC_SITE_URL || 'https://dzen-vpn.com') + '/logos/favicon.svg',
             sameAs: ['https://t.me/vpn_dzen_bot']
           }) }}
         />
@@ -88,10 +88,10 @@ export default function RootLayout({
             '@context': 'https://schema.org',
             '@type': 'WebSite',
             name: 'Dzen VPN',
-            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
+            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dzen-vpn.com',
             potentialAction: {
               '@type': 'SearchAction',
-              target: (process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com') + '/?q={search_term_string}',
+              target: (process.env.NEXT_PUBLIC_SITE_URL || 'https://dzen-vpn.com') + '/?q={search_term_string}',
               'query-input': 'required name=search_term_string'
             }
           }) }}

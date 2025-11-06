@@ -1,5 +1,5 @@
-# Replace example.com with your domain
-example.com {
+# Replace dzen-vpn.com with your domain
+dzen-vpn.com {
   encode gzip zstd
 
   # Forward all requests to the Next.js container

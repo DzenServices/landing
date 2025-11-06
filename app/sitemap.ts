@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+  const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://dzen-vpn.com';
   const now = new Date();
 
   const alternates = (path: string) => ({
