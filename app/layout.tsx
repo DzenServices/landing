@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -58,17 +59,19 @@ export default function RootLayout({
   return (
     <html lang="ru" className="scroll-smooth" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background", inter.className)}>
-        <LocaleProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navbar />
-            {children}
-          </ThemeProvider>
-        </LocaleProvider>
+        <Suspense fallback={null}>
+          <LocaleProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Navbar />
+              {children}
+            </ThemeProvider>
+          </LocaleProvider>
+        </Suspense>
         {/* JSON-LD structured data */}
         <Script id="ld-org" type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
