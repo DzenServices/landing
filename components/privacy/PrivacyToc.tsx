@@ -3,13 +3,13 @@
 import React from "react";
 import Link from "next/link";
 
-type TocItem = {
+type TocItem = Readonly<{
   id: string;
   label: string;
-};
+}>;
 
 type PrivacyTocProps = {
-  items: TocItem[];
+  items: ReadonlyArray<TocItem>;
 };
 
 export const PrivacyToc: React.FC<PrivacyTocProps> = ({ items }) => {

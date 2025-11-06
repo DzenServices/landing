@@ -31,11 +31,15 @@ interface RouteProps { hash: string; label: string }
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isMounted, setIsMounted] = React.useState(false);
   const { lang } = useLocale();
   const dict = getDictionary(lang === "en" ? "en" : "ru");
+  React.useEffect(() => setIsMounted(true), []);
+  // Избегаем SSR для компонента, зависящего от client-only маршрутизации и i18n,
+  // чтобы не получить несоответствие между серверным и клиентским HTML
+  if (!isMounted) return null;
   const t = dict.nav;
   const routeList: RouteProps[] = [
-    { hash: "sponsors", label: t.sponsors },
     { hash: "benefits", label: t.benefits },
     { hash: "features", label: t.features },
     { hash: "how-it-works", label: t.how },

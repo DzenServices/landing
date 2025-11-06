@@ -4,14 +4,9 @@ export default function robots(): MetadataRoute.Robots {
   const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
   return {
     rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-      },
+      { userAgent: '*', allow: ['/', '/en/'], disallow: ['/api/', '/preview/'] },
     ],
-    sitemap: [
-      `${site}/sitemap.xml`,
-    ],
+    sitemap: `${site}/sitemap.xml`,
     host: site.replace(/^https?:\/\//, ''),
   };
 }

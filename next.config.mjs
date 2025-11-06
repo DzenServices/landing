@@ -4,6 +4,8 @@ const nextConfig = {
   outputFileTracingRoot: process.cwd(),
   // Включаем standalone для минимального рантайма без полного node_modules
   output: "standalone",
+  // Явно отключаем добавление завершающего слеша, чтобы избегать лишних 3xx
+  trailingSlash: false,
   images: {
     remotePatterns: [
       {

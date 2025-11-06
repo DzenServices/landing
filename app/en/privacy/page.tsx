@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { TermsContent, ru } from "@/components/terms/TermsContent";
+import { PrivacyContent, en } from "@/components/privacy/PrivacyContent";
 
 export const revalidate = 3600;
 export const dynamic = 'error';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = "Правила пользования | Dzen VPN";
-  const description = "Публичная оферта Dzen VPN: условия предоставления доступа, тариф, списание средств, возвраты и поддержка.";
-  const languages = { ru: "/terms", en: "/en/terms" } as const;
+  const title = "Privacy Policy | Dzen VPN";
+  const description = "Privacy policy of the VPN Dzen Telegram bot: what data is processed, purposes and how to contact support.";
+  const languages = { ru: "/privacy", en: "/en/privacy" } as const;
   return {
     title,
     description,
-    alternates: { canonical: languages.ru, languages },
+    alternates: { canonical: languages.en, languages },
     openGraph: {
       title,
       description,
-      locale: "ru_RU",
+      locale: "en_US",
       alternateLocale: ["ru_RU", "en_US"],
       images: [
         {
@@ -35,6 +35,6 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function TermsPage() {
-  return <TermsContent t={ru} lang="ru" />;
+export default function PrivacyEnPage() {
+  return <PrivacyContent t={en} lang="en" />;
 }

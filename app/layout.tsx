@@ -5,15 +5,22 @@ import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
-import { cookies } from "next/headers";
 import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      ru: "/",
+      en: "/en",
+      "x-default": "/",
+    },
+  },
   title: "Быстрый и безопасный VPN | Dzen VPN",
   description:
-    "Подключение через @vpn_dzen_bot за 1 минуту. Быстрый и безопасный VPN с VLESS+REALITY, без логов. Работает на iOS, Android, Windows, macOS и Smart TV.",
+    "Подключение за 1 минуту через Telegram. Быстрый и безопасный VPN без логов. Работает на iPhone, Android, Windows, macOS и Smart TV.",
   robots: {
     index: true,
     follow: true,
@@ -42,17 +49,14 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/logos/favicon.ico" }],
   }
 };
-export default async function RootLayout({
+
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStorePromise = cookies();
-  const cookieStore = await cookieStorePromise;
-  const langCookie = cookieStore.get("lang")?.value;
-  const htmlLang = langCookie === "en" ? "en" : "ru";
   return (
-    <html lang={htmlLang} className="scroll-smooth" suppressHydrationWarning>
+    <html lang="ru" className="scroll-smooth" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background", inter.className)}>
         <LocaleProvider>
           <ThemeProvider
@@ -93,3 +97,4 @@ export default async function RootLayout({
     </html>
   );
 }
+

@@ -16,26 +16,26 @@ export const revalidate = 3600;
 export const dynamic = 'error';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = "Быстрый и безопасный VPN | Dzen VPN";
-  const description = "Подключение за 1 минуту через Telegram. Быстрый и безопасный VPN без логов. Работает на iPhone, Android, Windows, macOS и Smart TV.";
+  const title = "Fast and secure VPN | Dzen VPN";
+  const description = "Connect in 1 minute via Telegram. Fast and secure VPN with no logs. Works on iPhone, Android, Windows, macOS and Smart TV.";
   const languages = { ru: "/", en: "/en" } as const;
   return {
     title,
     description,
-    alternates: { canonical: languages.ru, languages },
+    alternates: { canonical: languages.en, languages },
     openGraph: {
       type: "website",
       title,
       description,
-      locale: "ru_RU",
+      locale: "en_US",
       alternateLocale: ["ru_RU", "en_US"],
     },
     twitter: { card: "summary_large_image", title, description },
   };
 }
 
-export default async function Home() {
-  const lang = "ru" as const;
+export default async function HomeEn() {
+  const lang = "en" as const;
   const dict = getDictionary(lang);
   const faqEntities = dict.home.faq.items.map((item) => ({
     "@type": "Question",
@@ -53,7 +53,7 @@ export default async function Home() {
       {/* <TestimonialSection /> */}
       {/* <CommunitySection /> */}
       <FAQSection lang={lang} />
-      <Script id="ld-faq" type="application/ld+json"
+      <Script id="ld-faq-en" type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
