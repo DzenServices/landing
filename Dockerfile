@@ -23,7 +23,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 # Set a default, override in runtime (used by SEO)
-ENV NEXT_PUBLIC_SITE_URL="https://example.com"
+ENV NEXT_PUBLIC_SITE_URL="https://dzen-vpn.com"
 
 # Copy standalone output only
 COPY --from=build /app/.next/standalone ./
