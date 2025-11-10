@@ -17,11 +17,39 @@ export const dynamic = 'error';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Fast and secure VPN | Dzen VPN";
-  const description = "Connect in 1 minute via Telegram. Fast and secure VPN with no logs. Works on iPhone, Android, Windows, macOS and Smart TV.";
+  const description = "Dzen VPN is a virtual private network service designed to provide secure access to the internet and reach restricted resources. Connection is started via a Telegram bot in under a minute. Traffic is encrypted and activity logs are not kept; apps are available for iPhone, Android, Windows, macOS, and Smart TV. Suitable for everyday browsing, travel, and remote work.";
+  const keywords = [
+    "vpn",
+    "virtual private network",
+    "traffic encryption",
+    "secure connection",
+    "bypass restrictions",
+    "online privacy",
+    "secure internet",
+    "no logs vpn",
+    "telegram vpn",
+    "connect vpn via telegram",
+    "vpn for iphone",
+    "vpn for ipad",
+    "vpn for android",
+    "vpn for windows",
+    "vpn for macos",
+    "vpn for smart tv",
+    "vpn for laptop",
+    "fast vpn",
+    "reliable vpn",
+    "stable vpn",
+    "wireguard vpn",
+    "dns and vpn",
+    "vpn subscription",
+    "buy vpn",
+    "dzen vpn"
+  ];
   const languages = { ru: "/", en: "/en" } as const;
   return {
     title,
     description,
+    keywords,
     alternates: { canonical: languages.en, languages },
     openGraph: {
       type: "website",
@@ -30,7 +58,6 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: "en_US",
       alternateLocale: ["ru_RU", "en_US"],
     },
-    twitter: { card: "summary_large_image", title, description },
   };
 }
 

@@ -17,11 +17,44 @@ export const dynamic = 'error';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Быстрый и безопасный VPN | Dzen VPN";
-  const description = "Подключение за 1 минуту через Telegram. Быстрый и безопасный VPN без логов. Работает на iPhone, Android, Windows, macOS и Smart TV.";
+  const description = "Dzen VPN — сервис виртуальной частной сети, который помогает безопасно подключаться к интернету и получать доступ к заблокированным ресурсам. Подключение выполняется через Telegram‑бота за одну минуту без лишних данных. Трафик шифруется, журналы активности не ведутся; приложения доступны для iPhone, Android, Windows, macOS и Smart TV. Подходит для повседневного использования, путешествий и удалённой работы.";
+  const keywords = [
+    "vpn",
+    "виртуальная частная сеть",
+    "шифрование трафика",
+    "защита соединения",
+    "обход блокировок",
+    "конфиденциальность онлайн",
+    "безопасный интернет",
+    "vpn без логов",
+    "no logs vpn",
+    "telegram vpn",
+    "подключение vpn через telegram",
+    "vpn для iphone",
+    "vpn для ipad",
+    "vpn для android",
+    "vpn для windows",
+    "vpn для macos",
+    "vpn для smart tv",
+    "vpn для ноутбука",
+    "скоростной vpn",
+    "надёжный vpn",
+    "стабильный vpn",
+    "впн россия",
+    "впн для путешествий",
+    "впн для работы",
+    "проксирование трафика",
+    "dns и vpn",
+    "wireguard vpn",
+    "подписка vpn",
+    "купить vpn",
+    "dzen vpn"
+  ];
   const languages = { ru: "/", en: "/en" } as const;
   return {
     title,
     description,
+    keywords,
     alternates: { canonical: languages.ru, languages },
     openGraph: {
       type: "website",
@@ -30,7 +63,6 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: "ru_RU",
       alternateLocale: ["ru_RU", "en_US"],
     },
-    twitter: { card: "summary_large_image", title, description },
   };
 }
 
