@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = "force-dynamic";
+
 export default function EnLayout({ children }: { children: React.ReactNode }) {
   // Простой прокси-лейаут для /en, использует корневой layout и провайдеры
   return children;

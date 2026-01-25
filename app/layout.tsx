@@ -8,6 +8,8 @@ import { ScrollReveal } from "@/components/layout/scroll-reveal";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import Script from "next/script";
+
+export const dynamic = "force-dynamic";
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
   weight: ["400", "600", "700"],
@@ -55,6 +57,31 @@ export const metadata: Metadata = {
     "купить vps",
     "dzen vps"
   ],
+  openGraph: {
+    type: "website",
+    title: "Быстрый и безопасный VPS | Dzen VPS",
+    description:
+      "Dzen VPS — сервис виртуальной частной сети для безопасного доступа к интернету и работы с ограниченными ресурсами. Подключение запускается через Telegram‑бота за минуту, трафик шифруется, журналы активности не ведутся.",
+    locale: "ru_RU",
+    alternateLocale: ["ru_RU", "en_US"],
+    url: "/",
+    siteName: "Dzen VPS",
+    images: [
+      {
+        url: "/logos/web-app-manifest-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "Dzen VPS",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Быстрый и безопасный VPS | Dzen VPS",
+    description:
+      "Dzen VPS — сервис виртуальной частной сети для безопасного доступа к интернету и работы с ограниченными ресурсами.",
+    images: ["/logos/web-app-manifest-512x512.png"],
+  },
   robots: {
     index: true,
     follow: true,

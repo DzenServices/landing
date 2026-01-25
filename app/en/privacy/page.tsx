@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export const revalidate = 3600;
-export const dynamic = 'error';
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Privacy Policy | Dzen VPS";
