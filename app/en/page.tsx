@@ -16,34 +16,34 @@ export const revalidate = 3600;
 export const dynamic = 'error';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = "Fast and secure VPN | Dzen VPN";
-  const description = "Dzen VPN is a virtual private network service designed to provide secure access to the internet and reach restricted resources. Connection is started via a Telegram bot in under a minute. Traffic is encrypted and activity logs are not kept; apps are available for iPhone, Android, Windows, macOS, and Smart TV. Suitable for everyday browsing, travel, and remote work.";
+  const title = "Fast and secure VPS | Dzen VPS";
+  const description = "Dzen VPS is a virtual private network service designed to provide secure access to the internet and reach restricted resources. Connection is started via a Telegram bot in under a minute. Traffic is encrypted and activity logs are not kept; apps are available for iPhone, Android, Windows, macOS, and Smart TV. Suitable for everyday browsing, travel, and remote work.";
   const keywords = [
-    "vpn",
+    "vps",
     "virtual private network",
     "traffic encryption",
     "secure connection",
     "bypass restrictions",
     "online privacy",
     "secure internet",
-    "no logs vpn",
-    "telegram vpn",
-    "connect vpn via telegram",
-    "vpn for iphone",
-    "vpn for ipad",
-    "vpn for android",
-    "vpn for windows",
-    "vpn for macos",
-    "vpn for smart tv",
-    "vpn for laptop",
-    "fast vpn",
-    "reliable vpn",
-    "stable vpn",
-    "wireguard vpn",
-    "dns and vpn",
-    "vpn subscription",
-    "buy vpn",
-    "dzen vpn"
+    "no logs vps",
+    "telegram vps",
+    "connect vps via telegram",
+    "vps for iphone",
+    "vps for ipad",
+    "vps for android",
+    "vps for windows",
+    "vps for macos",
+    "vps for smart tv",
+    "vps for laptop",
+    "fast vps",
+    "reliable vps",
+    "stable vps",
+    "wireguard vps",
+    "dns and vps",
+    "vps subscription",
+    "buy vps",
+    "dzen vps"
   ];
   const languages = { ru: "/", en: "/en" } as const;
   return {

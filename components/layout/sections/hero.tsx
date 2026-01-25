@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { Fragment } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { getDictionary } from "@/components/i18n/dictionary";
@@ -9,6 +10,7 @@ type Props = { lang?: string };
 export const HeroSection = ({ lang }: Props) => {
   const dict = getDictionary(lang === "en" ? "en" : "ru");
   const t = dict.home.hero;
+  const titleEndParts = t.titleEnd.split("\n");
   return (
     <section className="container w-full">
       <div className="mx-auto max-w-screen-xl px-4 md:px-6 py-20 md:py-32 text-center flex items-center justify-center min-h-[70vh] md:min-h-[80vh]">
@@ -19,7 +21,12 @@ export const HeroSection = ({ lang }: Props) => {
               <span className="text-transparent px-2 bg-gradient-to-r from-[#D247BF] to-primary bg-clip-text">
                 {t.titleMid}
               </span>
-              {t.titleEnd}
+              {titleEndParts.map((part, index) => (
+                <Fragment key={`${part}-${index}`}>
+                  {index > 0 && <br />}
+                  {part}
+                </Fragment>
+              ))}
             </h1>
           </div>
 

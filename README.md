@@ -1,4 +1,4 @@
-# Dzen VPN Landing
+# Dzen VPS Landing
 
 ## Стек: <a href="https://ui.shadcn.com/" target="_blank">shadcn/ui</a> + <a href="https://nextjs.org/" target="_blank">Next.js</a> + <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>
 
@@ -112,7 +112,7 @@ docker compose up -d
 Файл `Caddyfile` в репозитории содержит пример:
 
 ```
-dzen-vpn.com {
+dzenvps.com {
   encode gzip zstd
   reverse_proxy landing:3000 {
     header_up Host {host}
@@ -122,7 +122,7 @@ dzen-vpn.com {
   }
 }
 ```
-- Замените `dzen-vpn.com` на ваш домен.
+- Замените `dzenvps.com` на ваш домен.
 - Убедитесь, что контейнер Caddy находится в сети `caddy` и читает корректный `Caddyfile`.
   Пример запуска (один из вариантов):
   ```bash
@@ -178,7 +178,7 @@ Workflow `.github/workflows/deploy.yml` делает следующее:
 - **VPS_USER** — пользователь SSH.
 - **VPS_SSH_KEY** — приватный ключ SSH (PEM/OPENSSH).
 - **VPS_PORT** — порт SSH (опционально, по умолчанию 22).
-- **NEXT_PUBLIC_SITE_URL** — публичный URL сайта, например `https://dzen-vpn.com`.
+- **NEXT_PUBLIC_SITE_URL** — публичный URL сайта, например `https://dzenvps.com`.
 
 ## Лицензия
 

@@ -16,39 +16,39 @@ export const revalidate = 3600;
 export const dynamic = 'error';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = "Быстрый и безопасный VPN | Dzen VPN";
-  const description = "Dzen VPN — сервис виртуальной частной сети, который помогает безопасно подключаться к интернету и получать доступ к заблокированным ресурсам. Подключение выполняется через Telegram‑бота за одну минуту без лишних данных. Трафик шифруется, журналы активности не ведутся; приложения доступны для iPhone, Android, Windows, macOS и Smart TV. Подходит для повседневного использования, путешествий и удалённой работы.";
+  const title = "Быстрый и безопасный VPS | Dzen VPS";
+  const description = "Dzen VPS — сервис виртуальной частной сети, который помогает безопасно подключаться к интернету и получать доступ к заблокированным ресурсам. Подключение выполняется через Telegram‑бота за одну минуту без лишних данных. Трафик шифруется, журналы активности не ведутся; приложения доступны для iPhone, Android, Windows, macOS и Smart TV. Подходит для повседневного использования, путешествий и удалённой работы.";
   const keywords = [
-    "vpn",
+    "vps",
     "виртуальная частная сеть",
     "шифрование трафика",
     "защита соединения",
     "обход блокировок",
     "конфиденциальность онлайн",
     "безопасный интернет",
-    "vpn без логов",
-    "no logs vpn",
-    "telegram vpn",
-    "подключение vpn через telegram",
-    "vpn для iphone",
-    "vpn для ipad",
-    "vpn для android",
-    "vpn для windows",
-    "vpn для macos",
-    "vpn для smart tv",
-    "vpn для ноутбука",
-    "скоростной vpn",
-    "надёжный vpn",
-    "стабильный vpn",
-    "впн россия",
-    "впн для путешествий",
-    "впн для работы",
+    "vps без логов",
+    "no logs vps",
+    "telegram vps",
+    "подключение vps через telegram",
+    "vps для iphone",
+    "vps для ipad",
+    "vps для android",
+    "vps для windows",
+    "vps для macos",
+    "vps для smart tv",
+    "vps для ноутбука",
+    "скоростной vps",
+    "надёжный vps",
+    "стабильный vps",
+    "впс россия",
+    "впс для путешествий",
+    "впс для работы",
     "проксирование трафика",
-    "dns и vpn",
-    "wireguard vpn",
-    "подписка vpn",
-    "купить vpn",
-    "dzen vpn"
+    "dns и vps",
+    "wireguard vps",
+    "подписка vps",
+    "купить vps",
+    "dzen vps"
   ];
   const languages = { ru: "/", en: "/en" } as const;
   return {

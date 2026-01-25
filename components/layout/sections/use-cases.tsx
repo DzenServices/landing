@@ -11,7 +11,7 @@ interface UseCaseProps {
 const useCases: UseCaseProps[] = [
   {
     icon: "Send",
-    title: "VPN для Telegram",
+    title: "VPS для Telegram",
     description:
       "Сообщения, каналы и боты — стабильный доступ и удобное управление через @vpn_dzen_bot.",
   },

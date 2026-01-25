@@ -10,7 +10,7 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://dzen-vpn.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://dzenvps.com"),
   alternates: {
     canonical: "/",
     languages: {
@@ -19,36 +19,36 @@ export const metadata: Metadata = {
       "x-default": "/",
     },
   },
-  title: "Быстрый и безопасный VPN | Dzen VPN",
+  title: "Быстрый и безопасный VPS | Dzen VPS",
   description:
-    "Dzen VPN — сервис виртуальной частной сети для безопасного доступа к интернету и работы с ограниченными ресурсами. Подключение запускается через Telegram‑бота за минуту, трафик шифруется, журналы активности не ведутся. Клиенты доступны для iPhone, Android, Windows, macOS и Smart TV; решение подходит для повседневного использования, поездок и удалённой работы.",
+    "Dzen VPS — сервис виртуальной частной сети для безопасного доступа к интернету и работы с ограниченными ресурсами. Подключение запускается через Telegram‑бота за минуту, трафик шифруется, журналы активности не ведутся. Клиенты доступны для iPhone, Android, Windows, macOS и Smart TV; решение подходит для повседневного использования, поездок и удалённой работы.",
   keywords: [
-    "vpn",
+    "vps",
     "виртуальная частная сеть",
     "шифрование трафика",
     "защита соединения",
     "обход блокировок",
     "конфиденциальность онлайн",
     "безопасный интернет",
-    "vpn без логов",
-    "no logs vpn",
-    "telegram vpn",
-    "подключение vpn через telegram",
-    "vpn для iphone",
-    "vpn для ipad",
-    "vpn для android",
-    "vpn для windows",
-    "vpn для macos",
-    "vpn для smart tv",
-    "vpn для ноутбука",
-    "скоростной vpn",
-    "надёжный vpn",
-    "стабильный vpn",
-    "wireguard vpn",
-    "dns и vpn",
-    "подписка vpn",
-    "купить vpn",
-    "dzen vpn"
+    "vps без логов",
+    "no logs vps",
+    "telegram vps",
+    "подключение vps через telegram",
+    "vps для iphone",
+    "vps для ipad",
+    "vps для android",
+    "vps для windows",
+    "vps для macos",
+    "vps для smart tv",
+    "vps для ноутбука",
+    "скоростной vps",
+    "надёжный vps",
+    "стабильный vps",
+    "wireguard vps",
+    "dns и vps",
+    "подписка vps",
+    "купить vps",
+    "dzen vps"
   ],
   robots: {
     index: true,
@@ -105,9 +105,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Organization',
-            name: 'Dzen VPN',
-            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dzen-vpn.com',
-            logo: (process.env.NEXT_PUBLIC_SITE_URL || 'https://dzen-vpn.com') + '/logos/favicon.svg',
+            name: 'Dzen VPS',
+            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dzenvps.com',
+            logo: (process.env.NEXT_PUBLIC_SITE_URL || 'https://dzenvps.com') + '/logos/favicon.svg',
             sameAs: ['https://t.me/vpn_dzen_bot']
           }) }}
         />
@@ -115,11 +115,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebSite',
-            name: 'Dzen VPN',
-            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dzen-vpn.com',
+            name: 'Dzen VPS',
+            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dzenvps.com',
             potentialAction: {
               '@type': 'SearchAction',
-              target: (process.env.NEXT_PUBLIC_SITE_URL || 'https://dzen-vpn.com') + '/?q={search_term_string}',
+              target: (process.env.NEXT_PUBLIC_SITE_URL || 'https://dzenvps.com') + '/?q={search_term_string}',
               'query-input': 'required name=search_term_string'
             }
           }) }}

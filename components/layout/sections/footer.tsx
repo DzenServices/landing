@@ -19,7 +19,7 @@ export const FooterSection = () => {
           <div className="col-span-full xl:col-span-2 order-1">
             <Link href={base} className="flex font-bold items-center">
               <Logo className="w-9 h-9 mr-2 text-primary" />
-              <h3 className="text-2xl">Dzen VPN</h3>
+              <h3 className="text-2xl">Dzen VPS</h3>
             </Link>
           </div>
 
@@ -39,23 +39,13 @@ export const FooterSection = () => {
                 {t.faq}
               </Link>
             </div>
-            <div>
-              <Link href={isEn ? "/en/privacy" : "/privacy"} className="opacity-60 hover:opacity-100">
-                {t.privacy}
-              </Link>
-            </div>
-            <div>
-              <Link href={isEn ? "/en/terms" : "/terms"} className="opacity-60 hover:opacity-100">
-                {t.terms}
-              </Link>
-            </div>
           </div>
         </div>
 
         <Separator className="my-6" />
         <section className="">
           <h3 className="">
-            &copy; 2025 Dzen VPN. {t.rights}
+            &copy; 2025 Dzen VPS. {t.rights}
           </h3>
         </section>
       </div>

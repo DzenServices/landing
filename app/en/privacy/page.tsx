@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { PrivacyContent, en } from "@/components/privacy/PrivacyContent";
+import { notFound } from "next/navigation";
 
 export const revalidate = 3600;
 export const dynamic = 'error';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = "Privacy Policy | Dzen VPN";
-  const description = "Privacy policy of the VPN Dzen Telegram bot: what data is processed, purposes and how to contact support.";
+  const title = "Privacy Policy | Dzen VPS";
+  const description = "Privacy policy of the VPS Dzen Telegram bot: what data is processed, purposes and how to contact support.";
   const languages = { ru: "/privacy", en: "/en/privacy" } as const;
   return {
     title,
@@ -32,9 +32,10 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       images: ["/logos/web-app-manifest-512x512.png"],
     },
+    robots: { index: false, follow: false },
   };
 }
 
 export default function PrivacyEnPage() {
-  return <PrivacyContent t={en} lang="en" />;
+  notFound();
 }

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { PrivacyContent, ru } from "@/components/privacy/PrivacyContent";
+import { notFound } from "next/navigation";
 
 export const revalidate = 3600;
 export const dynamic = 'error';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = "Политика конфиденциальности | Dzen VPN";
-  const description = "Политика конфиденциальности Telegram-бота VPN Dzen: какие данные обрабатываются, цели и способы связи со службой поддержки.";
+  const title = "Политика конфиденциальности | Dzen VPS";
+  const description = "Политика конфиденциальности Telegram-бота VPS Dzen: какие данные обрабатываются, цели и способы связи со службой поддержки.";
   const languages = { ru: "/privacy", en: "/en/privacy" } as const;
   return {
     title,
@@ -32,9 +32,10 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       images: ["/logos/web-app-manifest-512x512.png"],
     },
+    robots: { index: false, follow: false },
   };
 }
 
 export default function PrivacyPage() {
-  return <PrivacyContent t={ru} lang="ru" />;
+  notFound();
 }

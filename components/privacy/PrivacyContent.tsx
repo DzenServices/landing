@@ -5,10 +5,10 @@ import { FooterSection } from "@/components/layout/sections/footer";
 
 export const ru = {
   breadcrumbsHome: "Главная",
-  pageTitle: "Политика конфиденциальности Telegram-бота «VPN Dzen»",
+  pageTitle: "Политика конфиденциальности Telegram-бота «VPS Dzen»",
   updatedLabel: "Дата обновления",
   intro:
-    "Администрация Telegram-бота VPN Dzen обязуется сохранять вашу конфиденциальность. Настоящая политика основана на требованиях GDPR и законодательства РФ и описывает, какие данные обрабатываются и с какой целью.",
+    "Администрация Telegram-бота VPS Dzen обязуется сохранять вашу конфиденциальность. Настоящая политика основана на требованиях GDPR и законодательства РФ и описывает, какие данные обрабатываются и с какой целью.",
   s1: "1. Сбор и использование персональных данных",
   s1_p1: "Мы обрабатываем данные только при вашем добровольном согласии и исключительно для работы сервиса:",
   s1_li1: "Telegram ID;",
@@ -54,10 +54,10 @@ export const ru = {
 
 export const en = {
   breadcrumbsHome: "Home",
-  pageTitle: "Privacy Policy of the Telegram bot ‘VPN Dzen’",
+  pageTitle: "Privacy Policy of the Telegram bot ‘VPS Dzen’",
   updatedLabel: "Last updated",
   intro:
-    "The administration of the VPN Dzen Telegram bot is committed to protecting your privacy. This policy is based on GDPR and Russian law and describes what data we process and for what purposes.",
+    "The administration of the VPS Dzen Telegram bot is committed to protecting your privacy. This policy is based on GDPR and Russian law and describes what data we process and for what purposes.",
   s1: "1. Collection and use of personal data",
   s1_p1: "We process data only with your voluntary consent and solely to operate the service:",
   s1_li1: "Telegram ID;",
@@ -130,9 +130,9 @@ export const PrivacyContent: React.FC<{ t: typeof ru | typeof en; lang: "ru" | "
             <div className="rounded-2xl border bg-background/50 backdrop-blur shadow-sm p-6 sm:p-10">
               <div className="prose prose-lg prose-slate dark:prose-invert max-w-none leading-relaxed prose-headings:font-semibold prose-headings:tracking-tight prose-h2:mt-10 prose-h2:scroll-mt-24 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:underline-offset-4 prose-ul:my-4 prose-li:my-1.5">
                 <p className="lead">
-                  {t.intro.split("VPN Dzen")[0]}
-                  <a href="https://t.me/vpn_dzen_bot" target="_blank" rel="noopener noreferrer">VPN Dzen</a>
-                  {t.intro.split("VPN Dzen")[1] ?? ""}
+                  {t.intro.split("VPS Dzen")[0]}
+                  <a href="https://t.me/vpn_dzen_bot" target="_blank" rel="noopener noreferrer">VPS Dzen</a>
+                  {t.intro.split("VPS Dzen")[1] ?? ""}
                 </p>
 
                 <h2 id="s1" className="scroll-mt-24">{t.s1}</h2>
@@ -172,7 +172,7 @@ export const PrivacyContent: React.FC<{ t: typeof ru | typeof en; lang: "ru" | "
                 <h2 id="s9" className="scroll-mt-24">{t.s9}</h2>
                 <p>
                   {t.s9_p1_prefix}{" "}
-                  <a href="https://t.me/vpn_dzen_bot" target="_blank" rel="noopener noreferrer">VPN Dzen</a>.
+                  <a href="https://t.me/vpn_dzen_bot" target="_blank" rel="noopener noreferrer">VPS Dzen</a>.
                   {" "}
                   {t.s9_p1_suffix}
                 </p>

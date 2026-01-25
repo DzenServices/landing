@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { TermsContent, ru } from "@/components/terms/TermsContent";
+import { notFound } from "next/navigation";
 
 export const revalidate = 3600;
 export const dynamic = 'error';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = "Правила пользования | Dzen VPN";
-  const description = "Публичная оферта Dzen VPN: условия предоставления доступа, тариф, списание средств, возвраты и поддержка.";
+  const title = "Правила пользования | Dzen VPS";
+  const description = "Публичная оферта Dzen VPS: условия предоставления доступа, тариф, списание средств, возвраты и поддержка.";
   const languages = { ru: "/terms", en: "/en/terms" } as const;
   return {
     title,
@@ -32,9 +32,10 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       images: ["/logos/web-app-manifest-512x512.png"],
     },
+    robots: { index: false, follow: false },
   };
 }
 
 export default function TermsPage() {
-  return <TermsContent t={ru} lang="ru" />;
+  notFound();
 }

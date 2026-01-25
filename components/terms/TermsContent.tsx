@@ -9,19 +9,19 @@ export const ru = {
   updatedLabel: "Дата обновления",
   s1: "1. Общие положения",
   s1_p1_prefix:
-    "Владелец сервиса (далее — «Продавец») публикует настоящую публичную оферту о предоставлении доступа к VPN-сервису через Telegram-бота",
+    "Владелец сервиса (далее — «Продавец») публикует настоящую публичную оферту о предоставлении доступа к VPS-сервису через Telegram-бота",
   s1_p2:
     "В соответствии со статьёй 437 ГК РФ данный документ является публичной офертой. Оплата услуг является акцептом оферты (ст. 438 ГК РФ) и означает заключение Договора.",
   s1_p3: "Если вы не согласны с условиями, не используйте сервис и не производите оплату.",
   s1_list: [
     "Оферта — публичное предложение Продавца заключить Договор на указанных условиях.",
     "Покупатель / Пользователь — физическое лицо, принявшее условия Оферты и пополнившее баланс в боте.",
-    "Товар (Доступ) — услуга предоставления VPN-соединения через программное обеспечение Продавца.",
+    "Товар (Доступ) — услуга предоставления VPS-соединения через программное обеспечение Продавца.",
     "Баланс — денежные средства Пользователя в сервисе, с которых ежедневно списывается плата за использование.",
     "Заказ — пополнение баланса на выбранную сумму.",
   ],
   s2: "2. Предмет договора",
-  s2_p1: "Продавец предоставляет доступ к VPN-сервису при условии наличия положительного баланса на аккаунте Пользователя.",
+  s2_p1: "Продавец предоставляет доступ к VPS-сервису при условии наличия положительного баланса на аккаунте Пользователя.",
   s2_p2_prefix: "Текущий тариф:",
   s2_p2_value: "7 рублей в день за 1 устройство",
   s2_p3: "Услуга активна до тех пор, пока на счёте есть достаточная сумма для списания.",
@@ -87,19 +87,19 @@ export const en = {
   updatedLabel: "Last updated",
   s1: "1. General provisions",
   s1_p1_prefix:
-    "The service owner (the “Seller”) publishes this public offer to provide access to the VPN service via the Telegram bot",
+    "The service owner (the “Seller”) publishes this public offer to provide access to the VPS service via the Telegram bot",
   s1_p2:
     "In accordance with Article 437 of the Civil Code of the Russian Federation, this document is a public offer. Payment for services constitutes acceptance (Art. 438 of the Civil Code) and means the conclusion of a Contract.",
   s1_p3: "If you do not agree with the terms, do not use the service and do not make payments.",
   s1_list: [
     "Offer — a public proposal by the Seller to conclude a Contract on the specified terms.",
     "Buyer / User — an individual who accepted the Offer terms and topped up the balance in the bot.",
-    "Product (Access) — the service of providing a VPN connection through the Seller's software.",
+    "Product (Access) — the service of providing a VPS connection through the Seller's software.",
     "Balance — the User's funds in the service from which the daily fee is charged.",
     "Order — topping up the balance for the selected amount.",
   ],
   s2: "2. Subject of the contract",
-  s2_p1: "The Seller provides access to the VPN service subject to a positive account balance.",
+  s2_p1: "The Seller provides access to the VPS service subject to a positive account balance.",
   s2_p2_prefix: "Current rate:",
   s2_p2_value: "7 RUB per day per 1 device",
   s2_p3: "The service remains active as long as there are sufficient funds for charging.",
@@ -190,7 +190,7 @@ export const TermsContent: React.FC<{ t: typeof ru | typeof en; lang: "ru" | "en
                 <h2 id="s1" className="scroll-mt-24">{t.s1}</h2>
                 <p>
                   {t.s1_p1_prefix}{" "}
-                  <a href="https://t.me/vpn_dzen_bot" target="_blank" rel="noopener noreferrer">VPN Dzen</a>.
+                  <a href="https://t.me/vpn_dzen_bot" target="_blank" rel="noopener noreferrer">VPS Dzen</a>.
                 </p>
                 <p>{t.s1_p2}</p>
                 <p>{t.s1_p3}</p>
