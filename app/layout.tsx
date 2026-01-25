@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   title: "Быстрый и безопасный VPS | Dzen VPS",
   description:
-    "Dzen VPS — сервис виртуальной частной сети для безопасного доступа к интернету и работы с ограниченными ресурсами. Подключение запускается через Telegram‑бота за минуту, трафик шифруется, журналы активности не ведутся. Клиенты доступны для iPhone, Android, Windows, macOS и Smart TV; решение подходит для повседневного использования, поездок и удалённой работы.",
+    "Dzen VPS — виртуальная частная сеть с быстрым подключением через Telegram‑бота. Шифрование трафика, без логов, приложения для iPhone, Android, Windows, macOS и Smart TV.",
   keywords: [
     "vps",
     "виртуальная частная сеть",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Быстрый и безопасный VPS | Dzen VPS",
     description:
-      "Dzen VPS — сервис виртуальной частной сети для безопасного доступа к интернету и работы с ограниченными ресурсами. Подключение запускается через Telegram‑бота за минуту, трафик шифруется, журналы активности не ведутся.",
+      "Dzen VPS — виртуальная частная сеть с быстрым подключением через Telegram‑бота. Шифрование трафика, без логов и приложения для всех устройств.",
     locale: "ru_RU",
     alternateLocale: ["ru_RU", "en_US"],
     url: "/",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Быстрый и безопасный VPS | Dzen VPS",
     description:
-      "Dzen VPS — сервис виртуальной частной сети для безопасного доступа к интернету и работы с ограниченными ресурсами.",
+      "Dzen VPS — виртуальная частная сеть с быстрым подключением через Telegram‑бота.",
     images: ["/logos/web-app-manifest-512x512.png"],
   },
   robots: {
@@ -149,12 +149,7 @@ export default function RootLayout({
             '@context': 'https://schema.org',
             '@type': 'WebSite',
             name: 'Dzen VPS',
-            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dzenvps.com',
-            potentialAction: {
-              '@type': 'SearchAction',
-              target: (process.env.NEXT_PUBLIC_SITE_URL || 'https://dzenvps.com') + '/?q={search_term_string}',
-              'query-input': 'required name=search_term_string'
-            }
+            url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dzenvps.com'
           }) }}
         />
       </body>

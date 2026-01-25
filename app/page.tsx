@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Быстрый и безопасный VPS | Dzen VPS";
-  const description = "Dzen VPS — сервис виртуальной частной сети, который помогает безопасно подключаться к интернету и получать доступ к заблокированным ресурсам. Подключение выполняется через Telegram‑бота за одну минуту без лишних данных. Трафик шифруется, журналы активности не ведутся; приложения доступны для iPhone, Android, Windows, macOS и Smart TV. Подходит для повседневного использования, путешествий и удалённой работы.";
+  const description = "Dzen VPS — виртуальная частная сеть с быстрым подключением через Telegram‑бота. Шифрование трафика, без логов, приложения для iPhone, Android, Windows, macOS и Smart TV.";
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://dzenvps.com";
   const keywords = [
     "vps",
