@@ -192,7 +192,7 @@ export const PrivacyContent: React.FC<{ t: typeof ru | typeof en; lang: "ru" | "
           </aside>
         </div>
       </section>
-      <FooterSection />
+      <FooterSection lang={lang} />
     </>
   );
 };

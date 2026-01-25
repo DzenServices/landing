@@ -1,4 +1,8 @@
-# Replace dzenvps.com with your domain
+# Replace dzenvps.com and www.dzenvps.com with your domain
+www.dzenvps.com {
+  redir https://dzenvps.com{uri} permanent
+}
+
 dzenvps.com {
   encode gzip zstd
 

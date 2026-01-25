@@ -15,7 +15,7 @@ export const BenefitsSection = ({ lang }: Props) => {
   const dict = getDictionary(lang === "en" ? "en" : "ru");
   const t = dict.home.benefits;
   return (
-    <section id="benefits" className="container py-24 sm:py-32">
+    <section id="benefits" data-reveal className="container py-24 sm:py-32 scroll-reveal">
       <div className="grid lg:grid-cols-2 place-items-center lg:gap-24">
         <div>
           <h2 className="text-lg text-primary mb-2 tracking-wider">{t.sectionKicker}</h2>

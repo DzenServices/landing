@@ -1,6 +1,5 @@
-"use client";
-import { Button } from "@/components/ui/button";
 import { Fragment } from "react";
+import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { getDictionary } from "@/components/i18n/dictionary";
@@ -12,7 +11,7 @@ export const HeroSection = ({ lang }: Props) => {
   const t = dict.home.hero;
   const titleEndParts = t.titleEnd.split("\n");
   return (
-    <section className="container w-full">
+    <section data-reveal className="container w-full scroll-reveal">
       <div className="mx-auto max-w-screen-xl px-4 md:px-6 py-20 md:py-32 text-center flex items-center justify-center min-h-[70vh] md:min-h-[80vh]">
         <div className="space-y-8">
           <div className="max-w-screen-md mx-auto text-center text-4xl md:text-6xl font-bold">

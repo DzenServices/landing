@@ -13,7 +13,7 @@ export const SponsorsSection = ({ lang }: Props) => {
   const dict = getDictionary(lang === "en" ? "en" : "ru");
   const t = dict.home.sponsors;
   return (
-    <section id="sponsors" className="relative max-w-[75%] mx-auto pb-24 sm:pb-32">
+    <section id="sponsors" data-reveal className="relative max-w-[75%] mx-auto pb-24 sm:pb-32 scroll-reveal">
       <h2 className="text-lg md:text-xl text-center mb-6">{t.title}</h2>
 
       <div className="relative mx-auto">

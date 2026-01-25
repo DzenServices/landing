@@ -4,10 +4,15 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/layout/navbar";
+import { ScrollReveal } from "@/components/layout/scroll-reveal";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import Script from "next/script";
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://dzenvps.com"),
@@ -100,6 +105,7 @@ export default function RootLayout({
             </ThemeProvider>
           </LocaleProvider>
         </Suspense>
+        <ScrollReveal />
         {/* JSON-LD structured data */}
         <Script id="ld-org" type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify({

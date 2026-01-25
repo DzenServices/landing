@@ -31,7 +31,7 @@ export const PricingSection = ({ lang }: Props) => {
   const dict = getDictionary(lang === "en" ? "en" : "ru");
   const t = dict.home.pricing;
   return (
-    <section id="pricing" className="container py-24 sm:py-32">
+    <section id="pricing" data-reveal className="container py-24 sm:py-32 scroll-reveal">
       <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
         {t.kicker}
       </h2>

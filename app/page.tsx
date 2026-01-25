@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { BenefitsSection } from "@/components/layout/sections/benefits";
 // import { CommunitySection } from "@/components/layout/sections/community";
-import { FAQSection } from "@/components/layout/sections/faq";
 import { FeaturesSection } from "@/components/layout/sections/features";
 import { FooterSection } from "@/components/layout/sections/footer";
 import { HeroSection } from "@/components/layout/sections/hero";
 import { PricingSection } from "@/components/layout/sections/pricing";
-import { SponsorsSection } from "@/components/layout/sections/sponsors";
 // import { TestimonialSection } from "@/components/layout/sections/testimonial";
 import { HowItWorksSection } from "@/components/layout/sections/how-it-works";
 import { getDictionary } from "@/components/i18n/dictionary";
+import { LazyFAQSection, LazySponsorsSection } from "@/components/layout/sections/lazy-sections";
 
 export const revalidate = 3600;
 export const dynamic = 'error';
@@ -77,14 +76,14 @@ export default async function Home() {
   return (
     <>
       <HeroSection lang={lang} />
-      <SponsorsSection lang={lang} />
+      <LazySponsorsSection lang={lang} />
       <BenefitsSection lang={lang} />
       <FeaturesSection lang={lang} />
       <HowItWorksSection lang={lang} />
       <PricingSection lang={lang} />
       {/* <TestimonialSection /> */}
       {/* <CommunitySection /> */}
-      <FAQSection lang={lang} />
+      <LazyFAQSection lang={lang} />
       <Script id="ld-faq" type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
@@ -92,7 +91,7 @@ export default async function Home() {
           mainEntity: faqEntities,
         }) }}
       />
-      <FooterSection />
+      <FooterSection lang={lang} />
     </>
   );
 }

@@ -109,6 +109,11 @@ export type Dictionary = {
     s9: string; s9_p1_prefix: string; s9_p2: string;
     toc: { id: string; label: string }[];
   };
+  notFound: {
+    title: string;
+    description: string;
+    cta: string;
+  };
 };
 
 const RU: Dictionary = {
@@ -342,6 +347,11 @@ const RU: Dictionary = {
       { id: "s9", label: "9. Поддержка и претензии" },
     ],
   },
+  notFound: {
+    title: "Страница не найдена",
+    description: "Такой страницы не существует.",
+    cta: "На главную",
+  },
 };
 
 const EN: Dictionary = {
@@ -574,6 +584,11 @@ const EN: Dictionary = {
       { id: "s8", label: "8. Rights & liability" },
       { id: "s9", label: "9. Support & claims" },
     ],
+  },
+  notFound: {
+    title: "Page not found",
+    description: "The page you are looking for does not exist.",
+    cta: "Back to home",
   },
 };
 

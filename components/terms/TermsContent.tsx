@@ -267,7 +267,7 @@ export const TermsContent: React.FC<{ t: typeof ru | typeof en; lang: "ru" | "en
           </aside>
         </div>
       </section>
-      <FooterSection />
+      <FooterSection lang={lang} />
     </>
   );
 };

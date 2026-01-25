@@ -1,19 +1,17 @@
-"use client";
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Logo } from "@/components/icons/logo";
-import { useLocale } from "@/components/i18n/LocaleContext";
-import { getDictionary } from "@/components/i18n/dictionary";
+import { getDictionary, type SupportedLang } from "@/components/i18n/dictionary";
 
-export const FooterSection = () => {
-  const { lang } = useLocale();
+type Props = { lang: SupportedLang };
+
+export const FooterSection = ({ lang }: Props) => {
   const isEn = lang === "en";
   const base = isEn ? "/en" : "/";
   const dict = getDictionary(isEn ? "en" : "ru");
   const t = dict.footer;
   return (
-    <footer id="footer" className="container py-24 sm:py-32">
+    <footer id="footer" data-reveal className="container py-24 sm:py-32 scroll-reveal">
       <div className="p-10 bg-card border border-secondary rounded-2xl">
         <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8 items-start">
           <div className="col-span-full xl:col-span-2 order-1">
