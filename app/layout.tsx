@@ -108,7 +108,10 @@ export const metadata: Metadata = {
       { url: "/logos/apple-touch-icon.png", rel: "apple-touch-icon" },
     ],
     shortcut: [{ url: "/logos/favicon.ico" }],
-  }
+  },
+  other: {
+    "yandex-verification": "db0a779c761e3417",
+  },
 };
 
 export default function RootLayout({
