@@ -10,6 +10,8 @@ export const ScrollReveal = () => {
     let isCanceled = false;
     let observer: IntersectionObserver | null = null;
     let mutationObserver: MutationObserver | null = null;
+    let idleCallbackId: number | null = null;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
     const init = () => {
       if (isCanceled) return;
@@ -78,15 +80,36 @@ export const ScrollReveal = () => {
       mutationObserver.observe(document.body, { childList: true, subtree: true });
     };
 
-    if ("requestIdleCallback" in window) {
-      (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => void })
-        .requestIdleCallback(init, { timeout: 2000 });
+    const scheduleInit = () => {
+      if ("requestIdleCallback" in window) {
+        const idleWindow = window as Window & {
+          requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number;
+          cancelIdleCallback: (id: number) => void;
+        };
+        idleCallbackId = idleWindow.requestIdleCallback(init, { timeout: 2000 });
+      } else {
+        timeoutId = setTimeout(init, 300);
+      }
+    };
+
+    const onLoad = () => scheduleInit();
+
+    if (document.readyState === "complete") {
+      scheduleInit();
     } else {
-      setTimeout(init, 300);
+      window.addEventListener("load", onLoad, { once: true });
     }
 
     return () => {
       isCanceled = true;
+      if (idleCallbackId !== null && "cancelIdleCallback" in window) {
+        const idleWindow = window as Window & { cancelIdleCallback: (id: number) => void };
+        idleWindow.cancelIdleCallback(idleCallbackId);
+      }
+      if (timeoutId !== null) {
+        clearTimeout(timeoutId);
+      }
+      window.removeEventListener("load", onLoad);
       observer?.disconnect();
       mutationObserver?.disconnect();
     };
